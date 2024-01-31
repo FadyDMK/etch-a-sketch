@@ -33,7 +33,7 @@ btn.addEventListener('click', () => {
     }
 
 })
-
+console.log('hihi')
 
 function removeGrid() {
     const items = document.querySelectorAll('.item');
