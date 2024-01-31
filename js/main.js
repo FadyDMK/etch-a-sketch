@@ -1,7 +1,7 @@
 
 const container = document.querySelector('.container');
 
-for (let i = 0; i < (16 * 16) - 1; i++) {
+for (let i = 0; i < (16 * 16) -1; i++) {
     const item = document.createElement('div')
     item.classList.add('item');
     item.addEventListener('mouseover', () => {
@@ -26,8 +26,11 @@ reset.addEventListener('click', () => {
 const btn = document.querySelector('.btn');
 
 btn.addEventListener('click', () => {
-    let width = Number(prompt('How many squares per side (e.g. 16): '));
-    if(width == NaN){console.log('pp')}
+    let width = Number(prompt('How many squares per side (e.g. 16 to get 16x16 grid): '));
+    if (width>0 && width<=100){
+        removeGrid();
+        newGrid(width);
+    }
 
 })
 
@@ -40,6 +43,18 @@ function removeGrid() {
 }
 
 function newGrid(number) {
-    console.log('test');
-    removeGrid();
+    for (let i = 0; i < (number * number) ; i++) {
+        const item = document.createElement('div')
+        item.classList.add('item');
+
+        item.addEventListener('mouseover', () => {
+            item.style.backgroundColor = 'black';
+        });
+        let dim = 350/number;
+        let dimS = dim + 'px';
+        item.style.height = dimS;
+        item.style.width = dimS;
+        container.appendChild(item);
+    
+    }
 }
