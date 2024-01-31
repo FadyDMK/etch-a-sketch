@@ -13,12 +13,22 @@ for (let i = 0; i < (16 * 16) - 1; i++) {
 
 
 
+const reset = document.querySelector('.reset');
+reset.addEventListener('click', () => {
+    const items = document.querySelectorAll('.item');
+    items.forEach(item => {
+        item.style.backgroundColor = 'white';
+    });
+})
+
+
 
 const btn = document.querySelector('.btn');
 
 btn.addEventListener('click', () => {
-    let width = prompt('How many squares per side (e.g. 16): ');
-    newGrid(number);
+    let width = Number(prompt('How many squares per side (e.g. 16): '));
+    if(width == NaN){console.log('pp')}
+
 })
 
 
