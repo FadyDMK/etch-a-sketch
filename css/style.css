@@ -32,16 +32,21 @@
 }
 
 .container {
-
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     flex-wrap: wrap;
-    justify-content: center;
+    height: 600px;
+    width: 600px;
+
+    border-style: solid;
+
 }
 
 .item {
     border-style: solid;
-    width: 48px;
-    height: 48px;
-
-
+    border-width: 1px;
+    box-sizing: border-box; /* Include border and padding in the element's total width and height */
+    height: calc(100% / 16); /* Calculate height for 16 items in a column (subtracting border width) */
+    width: calc(100% / 16); /* Calculate width for 16 items in a row (subtracting border width) */
 }

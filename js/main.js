@@ -1,19 +1,12 @@
-
 const container = document.querySelector('.container');
-
-for (let i = 0; i < (16 * 16) -1; i++) {
-    const item = document.createElement('div')
-    item.classList.add('item');
-    item.addEventListener('mouseover', () => {
-        item.style.backgroundColor = 'black';
-    });
-    container.appendChild(item);
-
-}
-
-
-
+const btn = document.querySelector('.btn');
 const reset = document.querySelector('.reset');
+
+
+
+newGrid(16);
+
+
 reset.addEventListener('click', () => {
     const items = document.querySelectorAll('.item');
     items.forEach(item => {
@@ -23,7 +16,7 @@ reset.addEventListener('click', () => {
 
 
 
-const btn = document.querySelector('.btn');
+
 
 btn.addEventListener('click', () => {
     let width = Number(prompt('How many squares per side (e.g. 16 to get 16x16 grid): '));
@@ -33,7 +26,6 @@ btn.addEventListener('click', () => {
     }
 
 })
-console.log('hihi')
 
 function removeGrid() {
     const items = document.querySelectorAll('.item');
@@ -47,11 +39,15 @@ function newGrid(number) {
         const item = document.createElement('div')
         item.classList.add('item');
 
+        let rndRed = Math.floor(Math.random()*255);
+        let rndBlue = Math.floor(Math.random()*255);
+        let rndYellow = Math.floor(Math.random()*255);
+
         item.addEventListener('mouseover', () => {
-            item.style.backgroundColor = 'black';
+            item.style.backgroundColor = 'rgb(' + rndRed +','+rndBlue+','+ rndYellow+')';
         });
-        let dim = 350/number;
-        let dimS = dim + 'px';
+        let dim = 100/number;
+        let dimS = dim + '%';
         item.style.height = dimS;
         item.style.width = dimS;
         container.appendChild(item);
